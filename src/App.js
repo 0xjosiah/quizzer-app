@@ -7,8 +7,8 @@ function App() {
 
   const fetchQs = async () => {
     const res = await fetch('https://opentdb.com/api.php?amount=10')
-    const data = res.json()
-    console.log(data)
+    const data = await res.json()
+    setQuiz(data)
   }
 
   return (
