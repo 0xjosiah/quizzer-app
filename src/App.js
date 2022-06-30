@@ -7,8 +7,9 @@ function App() {
   const [quiz, setQuiz] = useState({})
 
   const fetchQs = async () => {
-    const res = await fetch('https://opentdb.com/api.php?amount=10')
+    const res = await fetch('https://opentdb.com/api.php?amount=5')
     const data = await res.json()
+    console.log(data)
     setQuiz(data)
     setIsQuizStart(prevState => !prevState)
   }
@@ -18,7 +19,7 @@ function App() {
       { !isQuizStart ? 
         <StartQuiz fetchQs={fetchQs} />
         :
-        <Quiz />
+        <Quiz quiz={quiz} />
       }
     </main>
   );
