@@ -8,11 +8,12 @@ export default function Quiz(props) {
         const answersHtml = shuffledAs.map(i => (
             <button dangerouslySetInnerHTML={{__html:`${i}`}}></button>
         ))
-        
+
         return (
             <div>
                 <h4 dangerouslySetInnerHTML={{__html:`${q.question}`}}></h4>
                 {answersHtml}
+                <button className="submit-btn">Check answers</button>
             </div>
         )
     })
