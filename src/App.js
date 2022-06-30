@@ -5,6 +5,7 @@ import Quiz from './components/Quiz'
 function App() {
   const [isQuizStart, setIsQuizStart] = useState(false)
   const [quiz, setQuiz] = useState(null)
+  const [userAnswers, setUserAnswers] = useState(new Array(5).fill())
 
   const fetchQs = async () => {
     const res = await fetch('https://opentdb.com/api.php?amount=5&type=multiple')
@@ -14,12 +15,16 @@ function App() {
     setIsQuizStart(prevState => !prevState)
   }
 
+  const setAnswers = () => {
+    console.log('answer')
+  }
+
   return (
     <main>
       { !isQuizStart ? 
         <StartQuiz fetchQs={fetchQs} />
         :
-        <Quiz quiz={quiz} />
+        <Quiz quiz={quiz} setAnswers={setAnswers} />
       }
     </main>
   );

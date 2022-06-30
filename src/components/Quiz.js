@@ -6,7 +6,7 @@ export default function Quiz(props) {
         const answers = q.incorrect_answers.concat(q.correct_answer)
         const shuffledAs = shuffle(answers)
         const answersHtml = shuffledAs.map(i => (
-            <button dangerouslySetInnerHTML={{__html:`${i}`}}></button>
+            <button onClick={props.setAnswers} dangerouslySetInnerHTML={{__html:`${i}`}}></button>
         ))
 
         return (
