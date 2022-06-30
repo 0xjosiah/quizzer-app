@@ -2,7 +2,7 @@ import { shuffle } from "../helpers"
 
 export default function Quiz(props) {
 
-    const questions = props.quiz.results.map(q => {
+    const questions = props.quiz.map(q => {
         const answers = q.incorrect_answers.concat(q.correct_answer)
         const shuffledAs = shuffle(answers)
         const answersHtml = shuffledAs.map(i => (
