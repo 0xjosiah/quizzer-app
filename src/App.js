@@ -3,7 +3,7 @@ import StartQuiz from './components/StartQuiz'
 import Quiz from './components/Quiz'
 
 function App() {
-  // const [isQuizStart, setIsQuizStart] = useState(false)
+  const [isQuizStart, setIsQuizStart] = useState(false)
   const [quiz, setQuiz] = useState(null)
 
   const fetchQs = async () => {
@@ -11,12 +11,12 @@ function App() {
     const data = await res.json()
     console.log(data)
     setQuiz(data)
-    // setIsQuizStart(prevState => !prevState)
+    setIsQuizStart(prevState => !prevState)
   }
 
   return (
     <main>
-      { !quiz ? 
+      { !isQuizStart ? 
         <StartQuiz fetchQs={fetchQs} />
         :
         <Quiz quiz={quiz} />
