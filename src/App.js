@@ -11,16 +11,23 @@ function App() {
   const fetchQs = async () => {
     const res = await fetch('https://opentdb.com/api.php?amount=5&type=multiple')
     const data = await res.json()
-    console.log(data)
+    // console.log(data)
     setQuiz(data.results.map(q => (
       {...q, id: nanoid()}
     )))
     setIsQuizStart(prevState => !prevState)
   }
-console.log(quiz)
-  const setAnswers = () => {
-    console.log('answer')
+
+  const setAnswers = (id, event) => {
+    const [value] = event.target.value
+    setUserAnswers(prevArr => prevArr.map(answer => (
+      {
+        id: id,
+        answer: value
+      }
+    )))
   }
+  console.log(userAnswers)
 
   return (
     <main>
