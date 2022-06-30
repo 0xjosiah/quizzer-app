@@ -13,7 +13,6 @@ export default function Quiz(props) {
             <div>
                 <h4 dangerouslySetInnerHTML={{__html:`${q.question}`}}></h4>
                 {answersHtml}
-                <button className="submit-btn">Check answers</button>
             </div>
         )
     })
@@ -21,6 +20,7 @@ export default function Quiz(props) {
     return (
         <div>
             {questions}
+            <button className="submit-btn">Check answers</button>
         </div>
     )
 }
