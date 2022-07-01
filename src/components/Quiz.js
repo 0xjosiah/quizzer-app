@@ -1,13 +1,14 @@
 import { shuffle } from "../helpers"
+import { useEffect } from "react"
 
 export default function Quiz(props) {
-
+    
     const questions = props.quiz.map(q => {
-        const answers = q.incorrect_answers.concat(q.correct_answer)
-        const shuffledAs = shuffle(answers)
-        const answersHtml = shuffledAs.map(i => (
-            <button onClick={(event) => props.setAnswers(q.id, event)} dangerouslySetInnerHTML={{__html:`${i}`}}></button>
-        ))
+            const answers = q.incorrect_answers.concat(q.correct_answer)
+            const shuffledAs = shuffle(answers)
+            const answersHtml = shuffledAs.map(i => (
+                <button onClick={(event) => props.setAnswers(q.id, event)} dangerouslySetInnerHTML={{__html:`${i}`}}></button>
+            ))
 
         return (
             <div>
