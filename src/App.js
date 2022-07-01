@@ -6,7 +6,7 @@ import { nanoid } from 'nanoid'
 function App() {
   const [isQuizStart, setIsQuizStart] = useState(false)
   const [quiz, setQuiz] = useState(null)
-  const [userAnswers, setUserAnswers] = useState(new Array(5).fill())
+  // const [userAnswers, setUserAnswers] = useState([])
 
   const fetchQs = async () => {
     const res = await fetch('https://opentdb.com/api.php?amount=5&type=multiple')
@@ -19,15 +19,13 @@ function App() {
   }
 
   const setAnswers = (id, event) => {
-    const [value] = event.target.value
-    setUserAnswers(prevArr => prevArr.map(answer => (
-      {
-        id: id,
-        answer: value
-      }
+    const {innerText} = event.target
+    // console.log(innerText)
+    setQuiz(prevArr => prevArr.map(question => (
+      id === question.id ? {...question, userAnswer: innerText} : question
     )))
   }
-  console.log(userAnswers)
+  console.log(quiz)
 
   return (
     <main>
