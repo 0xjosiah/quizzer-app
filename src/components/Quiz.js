@@ -1,5 +1,6 @@
 import { shuffle } from "../helpers"
 import { useEffect } from "react"
+import Question from "./Question"
 
 export default function Quiz(props) {
     
@@ -7,18 +8,8 @@ export default function Quiz(props) {
     // this will allow shuffle to run (hopefully) without changing order every time via useEffect
     // make sure on nested comps branch
     const questions = props.quiz.map(q => {
-            const answers = q.incorrect_answers.concat(q.correct_answer)
-            const shuffledAs = shuffle(answers)
-            const answersHtml = shuffledAs.map(i => (
-                <button onClick={(event) => props.setAnswers(q.id, event)} dangerouslySetInnerHTML={{__html:`${i}`}}></button>
-            ))
-
-        return (
-            <div>
-                <h4 key={q.id} dangerouslySetInnerHTML={{__html:`${q.question}`}}></h4>
-                {answersHtml}
-            </div>
-        )
+        console.log('i work')
+        return <Question setAnswers={props.setAnswers} question={q} />
     })
 
     return (
