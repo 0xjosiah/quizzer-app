@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import StartQuiz from './components/StartQuiz'
 import Quiz from './components/Quiz'
 import { nanoid } from 'nanoid'
+import { shuffle } from './helpers'
 
 function App() {
   const [isQuizStart, setIsQuizStart] = useState(false)
@@ -11,21 +12,23 @@ function App() {
   const fetchQs = async () => {
     const res = await fetch('https://opentdb.com/api.php?amount=5&type=multiple')
     const data = await res.json()
-    // console.log(data)
-    setQuiz(data.results.map(q => (
-      {...q, id: nanoid()}
+    setQuiz(data.results.map(question => (
+      {
+        ...question,
+        id: nanoid(),
+        allAnswers: shuffle(question.incorrect_answers.concat(question.correct_answer))
+      }
     )))
     setIsQuizStart(prevState => !prevState)
   }
 
   const setAnswers = (id, event) => {
     const {innerText} = event.target
-    // console.log(innerText)
     setQuiz(prevArr => prevArr.map(question => (
       id === question.id ? {...question, userAnswer: innerText} : question
     )))
   }
-  console.log(quiz)
+  // console.log(quiz)
 
   return (
     <main>
