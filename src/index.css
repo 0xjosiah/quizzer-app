@@ -3,3 +3,43 @@ body {
   font-family: 'Inter', sans-serif;
   font-family: 'Karla', sans-serif;
 }
+
+/* StartQuiz component */
+.title-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50%;
+  color: #293264;
+}
+.title-card__header {
+  margin: 0;
+}
+.title-card__description {
+  font-weight: 400;
+  font-size: 1em;
+  font-family: 'Inter', sans-serif;
+  margin-top: 1em;
+}
+.title-card__start-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 1em;
+  padding: 1em 3.5em;
+  font-weight: 500;
+  color: #f5f7fb;
+  background-color: #4D5B9E;
+  border: none;
+  border-radius: 15px;
+  margin-top: 1em;
+}
+
+/* Quiz component */
+.quiz {
+  /* margin: ; */
+}
+.quiz__ {}
+.quiz__ {}
+.quiz__ {}
+.quiz__ {}
+.quiz__ {}

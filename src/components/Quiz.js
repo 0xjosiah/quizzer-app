@@ -5,19 +5,19 @@ export default function Quiz(props) {
     
     const questions = props.quiz.map(q => {
             const answersHtml = q.allAnswers.map(i => (
-                <button onClick={(event) => props.setAnswers(q.id, event)} dangerouslySetInnerHTML={{__html:`${i}`}}></button>
+                <button className="quiz__answer-btn" onClick={(event) => props.setAnswers(q.id, event)} dangerouslySetInnerHTML={{__html:`${i}`}}></button>
             ))
 
         return (
-            <div>
-                <h4 key={q.id} dangerouslySetInnerHTML={{__html:`${q.question}`}}></h4>
+            <div className="quiz__question-block">
+                <h4 className="quiz__question" key={q.id} dangerouslySetInnerHTML={{__html:`${q.question}`}}></h4>
                 {answersHtml}
             </div>
         )
     })
 
     return (
-        <div>
+        <div className="quiz">
             {questions}
             <button className="submit-btn">Check answers</button>
         </div>
