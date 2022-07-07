@@ -28,7 +28,7 @@ function App() {
       id === question.id ? {...question, userAnswer: innerText} : question
     )))
   }
-  // console.log(quiz)
+  console.log(quiz)
 
   return (
     <main>
