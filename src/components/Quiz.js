@@ -6,10 +6,11 @@ export default function Quiz(props) {
     const questions = props.quiz.map(q => {
             const answersHtml = q.allAnswers.map(i => (
                 <button 
-                    className={q.userAnswer == i ? "quiz__answer-btn-selected" : "quiz__answer-btn"} 
+                    className={q.userAnswer === i ? "quiz__answer-btn-selected" : "quiz__answer-btn"} 
                     onClick={(event) => props.setAnswers(q.id, event)} 
                     dangerouslySetInnerHTML={{__html:`${i}`}}
                 >
+                {/* NEED TO FIX ENCODED ANSWERS ISSUE, q.userAnswer doesn't always equal i */}
                 </button>
             ))
 
@@ -31,7 +32,11 @@ export default function Quiz(props) {
     return (
         <div className="quiz">
             {questions}
-            <button className="quiz__submit-btn">Check answers</button>
+            <button 
+                className="quiz__submit-btn"
+            >
+                Check answers
+            </button>
         </div>
     )
 }
