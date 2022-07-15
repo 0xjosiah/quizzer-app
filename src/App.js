@@ -16,16 +16,15 @@ function App() {
       {
         ...question,
         id: nanoid(),
-        allAnswers: shuffle(question.incorrect_answers.concat(question.correct_answer))
+        allAnswers: shuffle(question.incorrect_answers.concat(question.correct_answer)),
       }
     )))
     setIsQuizStart(prevState => !prevState)
   }
 
-  const setAnswers = (id, event) => {
-    const {innerText} = event.target
+  const setAnswers = (id, answer) => {
     setQuiz(prevArr => prevArr.map(question => (
-      id === question.id ? {...question, userAnswer: innerText} : question
+      id === question.id ? {...question, userAnswer: answer} : question
     )))
   }
   console.log(quiz)
