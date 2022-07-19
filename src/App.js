@@ -38,6 +38,15 @@ function App() {
       numCorrect: quiz.filter(i => i.correct_answer === i.userAnswer).length
     }))
   }
+
+  const playAgain = () => {
+    setIsQuizStart(prevState => !prevState)
+    setQuiz(null)
+    setQuizResults({
+      isSubmitted: false,
+      numCorrect: null
+    })
+  }
   console.log(quiz)
 
   return (
@@ -50,6 +59,7 @@ function App() {
           setAnswers={setAnswers} 
           checkAnswers={checkAnswers}
           quizResults={quizResults}
+          playAgain={playAgain}
         />
       }
     </main>
