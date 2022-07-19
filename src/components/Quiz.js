@@ -2,8 +2,9 @@ import { shuffle } from "../helpers"
 import { useEffect } from "react"
 
 export default function Quiz(props) {
+    const {checkAnswers, quizResults, quiz} = props
     
-    const questions = props.quiz.map(q => {
+    const questions = quiz.map(q => {
             const answersHtml = q.allAnswers.map(i => (
                 <button 
                     className={q.userAnswer === i ? "quiz__answer-btn-selected" : "quiz__answer-btn"}
@@ -31,11 +32,11 @@ export default function Quiz(props) {
     return (
         <div className="quiz">
             {questions}
-            <div>
-                You scored {props.quizResults.numCorrect}/5 correct answers
+            <div className="quiz__results-div">
+                You scored {quizResults.numCorrect}/5 correct answers
                 <button 
                     className="quiz__submit-btn"
-                    onClick={props.checkAnswers}
+                    onClick={checkAnswers}
                 >
                     Check answers
                 </button>

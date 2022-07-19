@@ -77,8 +77,15 @@ body {
   background-color: #D6DBF5;
   border: .8px solid #D6DBF5;
 }
+.quiz__results-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2em;
+}
 .quiz__submit-btn {
-  margin: 1.5rem auto 0;
+  /* margin: 1.5rem auto 0; */
+  margin-left: 2em;
   display: block;
   font-family: 'Inter', sans-serif;
   font-size: 12px;
