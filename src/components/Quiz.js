@@ -31,11 +31,15 @@ export default function Quiz(props) {
     return (
         <div className="quiz">
             {questions}
-            <button 
-                className="quiz__submit-btn"
-            >
-                Check answers
-            </button>
+            <div>
+                You scored {props.quizResults.numCorrect}/5 correct answers
+                <button 
+                    className="quiz__submit-btn"
+                    onClick={props.checkAnswers}
+                >
+                    Check answers
+                </button>
+            </div>
         </div>
     )
 }

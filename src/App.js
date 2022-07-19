@@ -7,6 +7,10 @@ import { shuffle } from './helpers'
 function App() {
   const [isQuizStart, setIsQuizStart] = useState(false)
   const [quiz, setQuiz] = useState(null)
+  const [quizResults, setQuizResults] = useState({
+    isSubmitted: false,
+    numCorrect: null
+  })
   // const [userAnswers, setUserAnswers] = useState([])
 
   const fetchQs = async () => {
@@ -27,6 +31,13 @@ function App() {
       id === question.id ? {...question, userAnswer: answer} : question
     )))
   }
+
+  const checkAnswers = () => {
+    setQuizResults(prevState => ({
+      isSubmitted: !quizResults.isSubmitted,
+      numCorrect: quiz.filter(i => i.correct_answer === i.userAnswer).length
+    }))
+  }
   console.log(quiz)
 
   return (
@@ -34,7 +45,12 @@ function App() {
       { !isQuizStart ? 
         <StartQuiz fetchQs={fetchQs} />
         :
-        <Quiz quiz={quiz} setAnswers={setAnswers} />
+        <Quiz 
+          quiz={quiz} 
+          setAnswers={setAnswers} 
+          checkAnswers={checkAnswers}
+          quizResults={quizResults}
+        />
       }
     </main>
   );
