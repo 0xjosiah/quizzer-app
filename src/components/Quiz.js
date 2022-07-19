@@ -5,15 +5,23 @@ export default function Quiz(props) {
     const { quiz, quizResults, checkAnswers, playAgain } = props
     
     const questions = quiz.map(q => {
-            const answersHtml = q.allAnswers.map(i => (
+        const answersHtml = q.allAnswers.map(i => (
                 <button 
                     className={q.userAnswer === i ? "quiz__answer-btn-selected" : "quiz__answer-btn"}
                     onClick={() => props.setAnswers(q.id, i)} 
                     dangerouslySetInnerHTML={{__html:`${i}`}}
                 >
                 </button>
-            ))
-
+        ))
+        const answersHtmlPostSubmit = q.allAnswers.map(i => (
+            <button 
+                className={q.userAnswer === q.correct_answer ? "quiz__answer-btn-correct" : "quiz__answer-btn-incorrect"}
+                dangerouslySetInnerHTML={{__html:`${i}`}}
+            >
+            </button>
+        ))
+                
+// FIX THE SUBMIT BUTTON CLASS-NAME MESS
         return (
             <div className="quiz__question-block">
                 <h4 
@@ -23,7 +31,7 @@ export default function Quiz(props) {
                 >
                 </h4>
                 <div className="quiz__answers">
-                    {answersHtml}
+                    {!quizResults.isSubmitted ? answersHtml : answersHtmlPostSubmit}
                 </div>
             </div>
         )
