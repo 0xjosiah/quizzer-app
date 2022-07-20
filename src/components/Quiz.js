@@ -1,3 +1,6 @@
+import blueBlob from '../blue-blob.png'
+import yellowBlob from '../yellow-blob.png'
+
 export default function Quiz(props) {
     const { quiz, quizResults, checkAnswers, playAgain } = props
     
@@ -38,30 +41,34 @@ export default function Quiz(props) {
     })
 
     return (
-        <div className="quiz">
-            {questions}
-            <div className="quiz__results-div">
-                { !quizResults.isSubmitted ? 
-                    <>
-                        <button 
-                            className="quiz__submit-btn"
-                            onClick={checkAnswers}
-                        >
-                            Check answers
-                        </button>
-                    </>
-                    :
-                    <>
-                        You scored {quizResults.numCorrect}/5 correct answers
-                        <button 
-                            className="quiz__submit-btn"
-                            onClick={playAgain}
-                        >
-                            Play again
-                        </button>
-                    </>
-                }
+        <>
+            <div className="quiz">
+                {questions}
+                <div className="quiz__results-div">
+                    { !quizResults.isSubmitted ? 
+                        <>
+                            <button 
+                                className="quiz__submit-btn"
+                                onClick={checkAnswers}
+                            >
+                                Check answers
+                            </button>
+                        </>
+                        :
+                        <>
+                            You scored {quizResults.numCorrect}/5 correct answers
+                            <button 
+                                className="quiz__submit-btn"
+                                onClick={playAgain}
+                            >
+                                Play again
+                            </button>
+                        </>
+                    }
+                </div>
             </div>
-        </div>
+            <img className="quiz__blue-blob" src={blueBlob} />
+            <img className="quiz__yellow-blob" src={yellowBlob} />
+        </>
     )
 }
