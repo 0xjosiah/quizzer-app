@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import StartQuiz from './components/StartQuiz'
 import Quiz from './components/Quiz'
 import { nanoid } from 'nanoid'
@@ -11,7 +11,6 @@ function App() {
     isSubmitted: false,
     numCorrect: null
   })
-  // const [userAnswers, setUserAnswers] = useState([])
 
   const fetchQs = async () => {
     const res = await fetch('https://opentdb.com/api.php?amount=5&type=multiple')
@@ -47,7 +46,6 @@ function App() {
       numCorrect: null
     })
   }
-  console.log(quiz)
 
   return (
     <main>
