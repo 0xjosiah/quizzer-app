@@ -15,13 +15,16 @@ export default function Quiz(props) {
         ))
         const answersHtmlPostSubmit = q.allAnswers.map(i => (
             <button 
-                className={q.userAnswer === q.correct_answer ? "quiz__answer-btn-correct" : "quiz__answer-btn-incorrect"}
+                className={ q.userAnswer === q.correct_answer && q.userAnswer === i ? "quiz__answer-btn-correct"
+                    : q.correct_answer === i ? "quiz__answer-btn-correct"
+                    : q.userAnswer === i ? "quiz__answer-btn-incorrect"
+                    : "quiz__answer-btn-unselected"
+                }
                 dangerouslySetInnerHTML={{__html:`${i}`}}
             >
             </button>
         ))
                 
-// FIX THE SUBMIT BUTTON CLASS-NAME MESS
         return (
             <div className="quiz__question-block">
                 <h4 

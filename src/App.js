@@ -34,7 +34,7 @@ function App() {
 
   const checkAnswers = () => {
     setQuizResults(prevState => ({
-      isSubmitted: !quizResults.isSubmitted,
+      isSubmitted: !prevState.isSubmitted,
       numCorrect: quiz.filter(i => i.correct_answer === i.userAnswer).length
     }))
   }
