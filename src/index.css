@@ -36,6 +36,7 @@ body {
   border: none;
   border-radius: 15px;
   margin-top: 1em;
+  cursor: pointer;
 }
 .title-card__blue-blob {
   position: absolute;
@@ -85,6 +86,7 @@ body {
   color: #293264;
   border-radius: 8px;
   margin-bottom: 1rem;
+  cursor: pointer;
 }
 .quiz__answer-btn-selected {
   margin-right: 1em;
@@ -153,4 +155,5 @@ body {
   background-color: #4D5B9E;
   border: none;
   border-radius: 10px;
+  cursor: pointer;
 }
