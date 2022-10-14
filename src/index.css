@@ -57,6 +57,7 @@ body {
 .quiz {
   max-width: 550px;
   margin: 2.5em auto;
+  padding: 0 2em;
 }
 .quiz__blue-blob {
   position: absolute;
