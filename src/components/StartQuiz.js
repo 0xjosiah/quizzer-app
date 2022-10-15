@@ -34,6 +34,13 @@ export default function StartQuiz(props) {
                     <option id="31">Entertainment: Japanese Anime & Manga</option> 
                     <option id="32">Entertainment: Cartoon & Animations</option> 
                 </select>
+                <label for="difficulty">Select a difficulty</label>
+                <select id="difficulty" name="difficulty">
+                    <option id="any">Any Difficulty</option>
+                    <option id="easy">Easy</option>
+                    <option id="medium">Medium</option>
+                    <option id="hard">Hard</option>
+                </select>
                 <button 
                     className="title-card__start-btn"
                     onClick={props.fetchQs}
