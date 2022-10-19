@@ -19,6 +19,7 @@ const shuffle = (array) => {
 const fetchCategories = async () => {
   const res = await fetch('https://opentdb.com/api_category.php')
   const data = await res.json()
+  // console.log(data.trivia_categories);
   return data.trivia_categories
 }
 
