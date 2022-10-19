@@ -3,6 +3,12 @@ import yellowBlob from "../yellow-blob.png"
 import OptionSelect from "./OptionSelect"
 
 export default function StartQuiz(props) {
+    const difficultyOptions = [
+        {id: 'any', name: 'any'},
+        {id: 'easy', name: 'easy'},
+        {id: 'medium', name: 'medium'},
+        {id: 'hard', name: 'hard'},
+    ]
     return (
         <>
             <div className="title-card">
@@ -35,7 +41,7 @@ export default function StartQuiz(props) {
                     <option id="31">Entertainment: Japanese Anime & Manga</option> 
                     <option id="32">Entertainment: Cartoon & Animations</option> 
                 </select>
-                <OptionSelect id='difficulty' title='difficulty' options={['any', 'easy', 'medium', 'hard']}/>
+                <OptionSelect id='difficulty' title='difficulty' options={difficultyOptions}/>
                 <button 
                     className="title-card__start-btn"
                     onClick={props.fetchQs}

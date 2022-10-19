@@ -1,12 +1,16 @@
+import { useRef } from "react"
+
 export default function OptionSelect({id, options, title}) {
-    // const {id, options, title} = props
+    const selectRef = useRef()
+    
     const optionsElmts = options.map(i => (
-        <option id={i} key={i}>{i}</option>
+        <option id={i.id} key={i.id}>{i.name}</option>
     ))
+
     return (
         <>
             <label htmlFor={id}>{`Select a ${title}`}</label>
-            <select id={id} name={id}>
+            <select ref={selectRef} id={id} name={id}>
                 {optionsElmts}
             </select>
         </>
