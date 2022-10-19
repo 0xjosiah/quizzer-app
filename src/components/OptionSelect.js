@@ -1,11 +1,11 @@
-export default function OptionSelect(props) {
-    const {id, options} = props
+export default function OptionSelect({id, options, title}) {
+    // const {id, options, title} = props
     const optionsElmts = options.map(i => (
-        <option id={i}>{i}</option>
+        <option id={i} key={i}>{title}</option>
     ))
     return (
         <>
-            <label for={id}>{`Select a ${id}`}</label>
+            <label htmlFor={id}>{`Select a ${id}`}</label>
             <select id={id} name={id}>
                 {optionsElmts}
             </select>
