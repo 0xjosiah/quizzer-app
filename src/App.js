@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import StartQuiz from './components/StartQuiz'
 import Quiz from './components/Quiz'
 import { nanoid } from 'nanoid'
@@ -11,10 +11,28 @@ function App() {
     isSubmitted: false,
     numCorrect: null
   })
+  const [quizParams, setQuizParams] = useState({
+    difficulty: '',
+    question_category: ''
+  })
+
+  const handleSelectChange = (id, value) => {
+    setQuizParams(prev => ({
+      ...prev,
+      [id]: value
+    }))
+  }
+
+  useEffect(() => {
+    console.log(quizParams);
+  })
 
   const fetchQs = async () => {
-    const res = await fetch('https://opentdb.com/api.php?amount=5&type=multiple')
+    let difficulty = quizParams.difficulty ? `&difficulty=${quizParams.difficulty}` : ''
+    // let category = quizParams.question_category ? `&difficulty=${quizParams.question_category}` : ''
+    const res = await fetch(`https://opentdb.com/api.php?amount=5&type=multiple${difficulty}`)
     const data = await res.json()
+    console.log(data)
     setQuiz(data.results.map(question => (
       {
         ...question,
@@ -50,7 +68,10 @@ function App() {
   return (
     <main>
       { !isQuizStart ? 
-        <StartQuiz fetchQs={fetchQs} />
+        <StartQuiz 
+          fetchQs={fetchQs}
+          handleSelectChange={handleSelectChange}
+        />
         :
         <Quiz 
           quiz={quiz} 

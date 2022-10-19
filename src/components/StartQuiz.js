@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import blueBlob from "../blue-blob.png"
 import yellowBlob from "../yellow-blob.png"
 import OptionSelect from "./OptionSelect"
 
-export default function StartQuiz(props) {
+export default function StartQuiz({ fetchQs, handleSelectChange }) {
     const difficultyOptions = [
         {id: 'any', name: 'any'},
         {id: 'easy', name: 'easy'},
@@ -24,11 +24,11 @@ export default function StartQuiz(props) {
             <div className="title-card">
                 <h1 className="title-card__header">Quizzical</h1>
                 <p className="title-card__description">Test your skills with the ultimate quiz!</p>
-                <OptionSelect  id="question-category" title="question category" options={categoryOptions} />
-                <OptionSelect id='difficulty' title='difficulty' options={difficultyOptions} />
+                <OptionSelect id="question_category" title="question category" options={categoryOptions} handleSelectChange={handleSelectChange} />
+                <OptionSelect id='difficulty' title='difficulty' options={difficultyOptions} handleSelectChange={handleSelectChange} />
                 <button 
                     className="title-card__start-btn"
-                    onClick={props.fetchQs}
+                    onClick={fetchQs}
                 >
                     Start quiz
                 </button>
