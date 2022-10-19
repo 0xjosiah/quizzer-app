@@ -3,21 +3,13 @@ import blueBlob from "../blue-blob.png"
 import yellowBlob from "../yellow-blob.png"
 import OptionSelect from "./OptionSelect"
 
-export default function StartQuiz({ fetchQs, handleSelectChange }) {
+export default function StartQuiz({ fetchQs, handleSelectChange, categoryOptions }) {
     const difficultyOptions = [
         {id: 'any', name: 'any'},
         {id: 'easy', name: 'easy'},
         {id: 'medium', name: 'medium'},
         {id: 'hard', name: 'hard'},
     ]
-
-    const [categoryOptions, setCategoryOptions] = useState([])
-
-    useEffect(() => {
-        fetch('https://opentdb.com/api_category.php')
-            .then(res => res.json())
-            .then(data => setCategoryOptions(data.trivia_categories))
-    }, [])
 
     return (
         <>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useLayoutEffect, useState } from 'react'
 import StartQuiz from './components/StartQuiz'
 import Quiz from './components/Quiz'
 import { nanoid } from 'nanoid'
@@ -7,6 +7,7 @@ import { shuffle } from './helpers'
 function App() {
   const [isQuizStart, setIsQuizStart] = useState(false)
   const [quiz, setQuiz] = useState(null)
+  const [categoryOptions, setCategoryOptions] = useState([])
   const [quizResults, setQuizResults] = useState({
     isSubmitted: false,
     numCorrect: null
@@ -24,13 +25,22 @@ function App() {
   }
 
   useEffect(() => {
-    console.log(quizParams);
-  })
+    // console.log(quizParams);
+      fetch('https://opentdb.com/api_category.php')
+          .then(res => res.json())
+          .then(data => setCategoryOptions(data.trivia_categories))
+  }, [])
+
+  const categoryIdMatch = category => {
+    for(let key in categoryOptions) {
+      if(categoryOptions[key] === category) return key
+    }
+  }
 
   const fetchQs = async () => {
     let difficulty = quizParams.difficulty ? `&difficulty=${quizParams.difficulty}` : ''
-    // let category = quizParams.question_category ? `&difficulty=${quizParams.question_category}` : ''
-    const res = await fetch(`https://opentdb.com/api.php?amount=5&type=multiple${difficulty}`)
+    let category = quizParams.question_category ? `&difficulty=${categoryIdMatch(quizParams.question_category)}` : ''
+    const res = await fetch(`https://opentdb.com/api.php?amount=5&type=multiple${difficulty}${category}`)
     const data = await res.json()
     console.log(data)
     setQuiz(data.results.map(question => (
@@ -71,6 +81,7 @@ function App() {
         <StartQuiz 
           fetchQs={fetchQs}
           handleSelectChange={handleSelectChange}
+          categoryOptions={categoryOptions}
         />
         :
         <Quiz 
