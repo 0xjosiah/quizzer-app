@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react"
-import blueBlob from "../blue-blob.png"
-import yellowBlob from "../yellow-blob.png"
+import blueBlob from "../assets/blue-blob.png"
+import yellowBlob from "../assets/yellow-blob.png"
 import OptionSelect from "./OptionSelect"
 import SubmitBtn from "./SubmitBtn"
 

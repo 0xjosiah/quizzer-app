@@ -1,5 +1,5 @@
-import blueBlob from '../blue-blob.png'
-import yellowBlob from '../yellow-blob.png'
+import blueBlob from '../assets/blue-blob.png'
+import yellowBlob from '../assets/yellow-blob.png'
 import QuizQuestions from './QuizQuestions'
 import SubmitBtn from './SubmitBtn'
 

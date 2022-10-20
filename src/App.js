@@ -1,8 +1,8 @@
-import { useEffect, useLayoutEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import StartQuiz from './components/StartQuiz'
 import Quiz from './components/Quiz'
 import { nanoid } from 'nanoid'
-import { shuffle } from './helpers'
+import { shuffle } from './helpers/helpers'
 
 function App() {
   const [isQuizStart, setIsQuizStart] = useState(false)
