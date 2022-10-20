@@ -1,4 +1,4 @@
-export default function QuizQuestions({}) {
+export default function QuizQuestions({ quiz, quizResults, setAnswers }) {
     const questions = quiz.map(q => {
         const answersHtml = q.allAnswers.map(i => (
                 <button 
@@ -34,4 +34,10 @@ export default function QuizQuestions({}) {
             </div>
         )
     })
+
+    return (
+        <>
+            {questions}
+        </>
+    )
 }
