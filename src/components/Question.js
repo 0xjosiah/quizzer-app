@@ -3,7 +3,7 @@ import Answer from "./Answer"
 export default function Question ({ setAnswers, quizResults, question }) {
 
     const answersHtml = question.allAnswers.map(answer => (
-        <Answer answer={answer} setAnswers={setAnswers} question={question} quizResults={quizResults} />
+        <Answer answer={answer} setAnswers={setAnswers} question={question} quizResults={quizResults} key={answer} />
     ))
 
     return (
