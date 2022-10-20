@@ -43,7 +43,6 @@ function App() {
     let category = quizParams.question_category ? `&category=${categoryIdMatch(quizParams.question_category)}` : ''
     const res = await fetch(`https://opentdb.com/api.php?amount=5&type=multiple${difficulty}${category}`)
     const data = await res.json()
-    console.log(data)
     setQuiz(data.results.map(question => (
       {
         ...question,

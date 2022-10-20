@@ -1,9 +1,7 @@
 import blueBlob from '../blue-blob.png'
 import yellowBlob from '../yellow-blob.png'
 
-export default function Quiz(props) {
-    const { quiz, quizResults, checkAnswers, playAgain } = props
-    
+export default function Quiz({ quiz, quizResults, checkAnswers, playAgain }) {
     const questions = quiz.map(q => {
         const answersHtml = q.allAnswers.map(i => (
                 <button 
