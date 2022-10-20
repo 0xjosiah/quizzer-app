@@ -4,13 +4,7 @@ import yellowBlob from "../yellow-blob.png"
 import OptionSelect from "./OptionSelect"
 import SubmitBtn from "./SubmitBtn"
 
-export default function StartQuiz({ fetchQs, handleSelectChange, categoryOptions }) {
-    const difficultyOptions = [
-        {id: 'any', name: 'any'},
-        {id: 'easy', name: 'easy'},
-        {id: 'medium', name: 'medium'},
-        {id: 'hard', name: 'hard'},
-    ]
+export default function StartQuiz({ fetchQs, handleSelectChange, categoryOptions, difficultyOptions }) {
 
     return (
         <>

@@ -17,18 +17,25 @@ function App() {
     question_category: ''
   })
 
+  const difficultyOptions = [
+    {id: 'any', name: 'any'},
+    {id: 'easy', name: 'easy'},
+    {id: 'medium', name: 'medium'},
+    {id: 'hard', name: 'hard'},
+  ]
+  
+  useEffect(() => {
+      fetch('https://opentdb.com/api_category.php')
+          .then(res => res.json())
+          .then(data => setCategoryOptions(data.trivia_categories))
+  }, [])
+
   const handleSelectChange = (id, value) => {
     setQuizParams(prev => ({
       ...prev,
       [id]: value
     }))
   }
-
-  useEffect(() => {
-      fetch('https://opentdb.com/api_category.php')
-          .then(res => res.json())
-          .then(data => setCategoryOptions(data.trivia_categories))
-  }, [])
 
   const categoryIdMatch = param => {
     for(let category of categoryOptions) {
@@ -86,6 +93,7 @@ function App() {
           fetchQs={fetchQs}
           handleSelectChange={handleSelectChange}
           categoryOptions={categoryOptions}
+          difficultyOptions={difficultyOptions}
         />
         :
         <Quiz 
