@@ -1,7 +1,7 @@
 import blueBlob from '../assets/blue-blob.png'
 import yellowBlob from '../assets/yellow-blob.png'
-import Question from './Question'
-import SubmitBtn from './SubmitBtn'
+import Question from '../components/Question'
+import SubmitBtn from '../components/SubmitBtn'
 
 export default function Quiz({ quiz, quizResults, checkAnswers, playAgain, setAnswers }) {
     const questions = quiz.map(question => (

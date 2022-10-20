@@ -1,7 +1,7 @@
 import blueBlob from "../assets/blue-blob.png"
 import yellowBlob from "../assets/yellow-blob.png"
-import OptionSelect from "./OptionSelect"
-import SubmitBtn from "./SubmitBtn"
+import OptionSelect from "../components/OptionSelect"
+import SubmitBtn from "../components/SubmitBtn"
 
 export default function StartQuiz({ fetchQs, handleSelectChange, categoryOptions, difficultyOptions }) {
 

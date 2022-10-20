@@ -7,6 +7,7 @@ export default function Answer({ answer, setAnswers, question, quizResults }) {
     if(!quizResults.isSubmitted) {
         className = question.userAnswer === answer ? "quiz__answer-btn-selected" : "quiz__answer-btn"
     }
+    
     if(quizResults.isSubmitted) {
         className = question.userAnswer === question.correct_answer && question.userAnswer === answer ? "quiz__answer-btn-correct"
             : question.correct_answer === answer ? "quiz__answer-btn-correct"

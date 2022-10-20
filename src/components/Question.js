@@ -15,7 +15,6 @@ export default function Question ({ setAnswers, quizResults, question }) {
             >
             </h4>
             <div className="quiz__answers">
-                {/* {!quizResults.isSubmitted ? answersHtml : answersHtmlPostSubmit} */}
                 {answersHtml}
             </div>
         </div>

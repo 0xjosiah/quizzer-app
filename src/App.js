@@ -1,5 +1,5 @@
-import StartQuiz from './components/StartQuiz'
-import Quiz from './components/Quiz'
+import StartQuiz from './pages/StartQuiz'
+import Quiz from './pages/Quiz'
 import useQuizzer from './hooks/useQuizzer'
 
 function App() {
