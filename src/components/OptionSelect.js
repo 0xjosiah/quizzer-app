@@ -6,7 +6,7 @@ export default function OptionSelect({id, options, title, handleSelectChange}) {
     const optionsElmts = options.map(i => (
         <option id={i.id} key={i.id}>{i.name}</option>
     ))
-    console.log(selectRef)
+    
     return (
         <>
             <label htmlFor={id}>{`Select a ${title}`}</label>

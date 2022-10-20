@@ -31,15 +31,17 @@ function App() {
           .then(data => setCategoryOptions(data.trivia_categories))
   }, [])
 
-  const categoryIdMatch = category => {
-    for(let key in categoryOptions) {
-      if(categoryOptions[key] === category) return key
+  const categoryIdMatch = param => {
+    for(let category of categoryOptions) {
+      if(category.name === param) {
+        return category.id
+      }
     }
   }
 
   const fetchQs = async () => {
     let difficulty = quizParams.difficulty ? `&difficulty=${quizParams.difficulty}` : ''
-    let category = quizParams.question_category ? `&difficulty=${categoryIdMatch(quizParams.question_category)}` : ''
+    let category = quizParams.question_category ? `&category=${categoryIdMatch(quizParams.question_category)}` : ''
     const res = await fetch(`https://opentdb.com/api.php?amount=5&type=multiple${difficulty}${category}`)
     const data = await res.json()
     console.log(data)
