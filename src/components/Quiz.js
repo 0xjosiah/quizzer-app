@@ -5,7 +5,7 @@ import SubmitBtn from './SubmitBtn'
 
 export default function Quiz({ quiz, quizResults, checkAnswers, playAgain, setAnswers }) {
     const questions = quiz.map(question => (
-        <Question setAnswers={setAnswers} quizResults={quizResults} question={question} />
+        <Question setAnswers={setAnswers} quizResults={quizResults} question={question} key={question.id} />
     ))
 
     return (

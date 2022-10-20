@@ -1,25 +1,33 @@
+import Answer from "./Answer"
+
 export default function Question ({ setAnswers, quizResults, question }) {
-    const answersHtml = question.allAnswers.map(i => (
-            <button 
-                className={question.userAnswer === i ? "quiz__answer-btn-selected" : "quiz__answer-btn"}
-                onClick={() => setAnswers(question.id, i)} 
-                dangerouslySetInnerHTML={{__html:`${i}`}}
-            >
-            </button>
+    // const answersHtml = question.allAnswers.map(answer => (
+    //         <button 
+    //             className={question.userAnswer === answer ? "quiz__answer-btn-selected" : "quiz__answer-btn"}
+    //             onClick={() => setAnswers(question.id, answer)} 
+    //             dangerouslySetInnerHTML={{__html:`${answer}`}}
+    //             key={answer}
+    //         >
+    //         </button>
+    // ))
+
+    // const answersHtmlPostSubmit = question.allAnswers.map(answer => (
+    //     <button 
+    //         className={ question.userAnswer === question.correct_answer && question.userAnswer === answer ? "quiz__answer-btn-correct"
+    //             : question.correct_answer === answer ? "quiz__answer-btn-correct"
+    //             : question.userAnswer === answer ? "quiz__answer-btn-incorrect"
+    //             : "quiz__answer-btn-unselected"
+    //         }
+    //         dangerouslySetInnerHTML={{__html:`${answer}`}}
+    //         key={answer}
+    //     >
+    //     </button>
+    // ))
+
+    const answersHtml = question.allAnswers.map(answer => (
+        <Answer answer={answer} setAnswers={setAnswers} question={question} quizResults={quizResults} />
     ))
 
-    const answersHtmlPostSubmit = question.allAnswers.map(i => (
-        <button 
-            className={ question.userAnswer === question.correct_answer && question.userAnswer === i ? "quiz__answer-btn-correct"
-                : question.correct_answer === i ? "quiz__answer-btn-correct"
-                : question.userAnswer === i ? "quiz__answer-btn-incorrect"
-                : "quiz__answer-btn-unselected"
-            }
-            dangerouslySetInnerHTML={{__html:`${i}`}}
-        >
-        </button>
-    ))
-    
     return (
         <div className="quiz__question-block">
             <h4 
@@ -29,7 +37,8 @@ export default function Question ({ setAnswers, quizResults, question }) {
             >
             </h4>
             <div className="quiz__answers">
-                {!quizResults.isSubmitted ? answersHtml : answersHtmlPostSubmit}
+                {/* {!quizResults.isSubmitted ? answersHtml : answersHtmlPostSubmit} */}
+                {answersHtml}
             </div>
         </div>
     )
