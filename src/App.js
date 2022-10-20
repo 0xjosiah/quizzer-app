@@ -25,7 +25,6 @@ function App() {
   }
 
   useEffect(() => {
-    // console.log(quizParams);
       fetch('https://opentdb.com/api_category.php')
           .then(res => res.json())
           .then(data => setCategoryOptions(data.trivia_categories))
@@ -74,6 +73,10 @@ function App() {
     setQuizResults({
       isSubmitted: false,
       numCorrect: null
+    })
+    setQuizParams({
+      difficulty: '',
+      question_category: ''
     })
   }
 
