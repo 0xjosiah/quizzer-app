@@ -10,7 +10,7 @@ export default function OptionSelect({id, options, title, handleSelectChange}) {
     return (
         <>
             <label htmlFor={id}>{`Select a ${title}`}</label>
-            <select id={id} name={id} ref={selectRef} onChange={() => handleSelectChange(id, selectRef.current.value)}>
+            <select className="title-card__select" id={id} name={id} ref={selectRef} onChange={() => handleSelectChange(id, selectRef.current.value)}>
                 {optionsElmts}
             </select>
         </>
