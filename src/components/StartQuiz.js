@@ -1,4 +1,3 @@
-import { useEffect, useRef, useState } from "react"
 import blueBlob from "../assets/blue-blob.png"
 import yellowBlob from "../assets/yellow-blob.png"
 import OptionSelect from "./OptionSelect"
