@@ -49,12 +49,7 @@ export default function Quiz({ quiz, quizResults, checkAnswers, playAgain, setAn
                         :
                         <>
                             You scored {quizResults.numCorrect}/5 correct answers
-                            <button 
-                                className="quiz__submit-btn"
-                                onClick={playAgain}
-                            >
-                                Play again
-                            </button>
+                            <SubmitBtn className="quiz__submit-btn" handleClick={playAgain} btnMessage="Play again" />
                         </>
                     }
                 </div>
