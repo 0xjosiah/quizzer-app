@@ -1,14 +1,19 @@
 import blueBlob from '../assets/blue-blob.png'
 import yellowBlob from '../assets/yellow-blob.png'
 import QuizQuestions from './QuizQuestions'
+import Question from './Question'
 import SubmitBtn from './SubmitBtn'
 
 export default function Quiz({ quiz, quizResults, checkAnswers, playAgain, setAnswers }) {
+    const questions = quiz.map(question => (
+        <Question setAnswers={setAnswers} quizResults={quizResults} question={question} />
+    ))
 
     return (
         <>
             <div className="quiz">
-                <QuizQuestions quiz={quiz} quizResults={quizResults} setAnswers={setAnswers} />
+                {questions}
+                {/* <QuizQuestions quiz={quiz} quizResults={quizResults} setAnswers={setAnswers} /> */}
                 <div className="quiz__results-div">
                     { !quizResults.isSubmitted ? 
                         <SubmitBtn className="quiz__submit-btn" handleClick={checkAnswers} btnMessage="Check answers" />
