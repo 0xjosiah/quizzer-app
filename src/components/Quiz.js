@@ -1,12 +1,13 @@
 import blueBlob from '../blue-blob.png'
 import yellowBlob from '../yellow-blob.png'
+import SubmitBtn from './SubmitBtn'
 
-export default function Quiz({ quiz, quizResults, checkAnswers, playAgain }) {
+export default function Quiz({ quiz, quizResults, checkAnswers, playAgain, setAnswers }) {
     const questions = quiz.map(q => {
         const answersHtml = q.allAnswers.map(i => (
                 <button 
                     className={q.userAnswer === i ? "quiz__answer-btn-selected" : "quiz__answer-btn"}
-                    onClick={() => props.setAnswers(q.id, i)} 
+                    onClick={() => setAnswers(q.id, i)} 
                     dangerouslySetInnerHTML={{__html:`${i}`}}
                 >
                 </button>
@@ -44,14 +45,7 @@ export default function Quiz({ quiz, quizResults, checkAnswers, playAgain }) {
                 {questions}
                 <div className="quiz__results-div">
                     { !quizResults.isSubmitted ? 
-                        <>
-                            <button 
-                                className="quiz__submit-btn"
-                                onClick={checkAnswers}
-                            >
-                                Check answers
-                            </button>
-                        </>
+                        <SubmitBtn className="quiz__submit-btn" handleClick={checkAnswers} btnMessage="Check answers" />
                         :
                         <>
                             You scored {quizResults.numCorrect}/5 correct answers
