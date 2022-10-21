@@ -68,7 +68,7 @@ body {
 
 /* Images */
 .title-card__blue-blob {
-  position: absolute;
+  position: fixed;
   width: 297px;
   height: 235px;
   bottom: 0;
@@ -76,7 +76,7 @@ body {
 }
 
 .title-card__yellow-blob {
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 0;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
@@ -190,13 +190,13 @@ body {
 
 /* Images */
 .quiz__blue-blob {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   z-index: -1;
 }
 .quiz__yellow-blob {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
